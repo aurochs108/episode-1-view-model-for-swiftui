@@ -1,23 +1,23 @@
 //
-//  StateObjectViewModel.swift
+//  ContentViewModel.swift
 //  episode-1-view-model-for-swiftui
 //
-//  Created by Dawid on 07/04/2024.
+//  Created by Dawid on 10/04/2024.
 //
 
 import Combine
 import Foundation
 
-final class StateObjectViewModel: ObservableObject {
-    @Published private(set) var id: Int
-    @Published private(set) var text = UUID().uuidString
-    @Published private(set) var date = Date()
-    private let secretDataProvider: SecretDataProviderProtocol
+final class ContentViewModel: ObservableObject {
+    @Published var date: Date
+    let secretData: SecretDataProviderProtocol
     private var cancellable = Set<AnyCancellable>()
     
     init() {
-        self.id = Int.random(in: 0...999)
-        self.secretDataProvider = StaticSecretDataProvider.shared
+        self.secretData = SecretDataProvider(
+            secretData: SecretDataModel(data: UUID().uuidString)
+        )
+        self.date = Date()
         
         bind()
     }
@@ -28,7 +28,6 @@ final class StateObjectViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] _ in
                 guard let self else { return }
-                text = UUID().uuidString
                 date = Date()
             })
             .store(in: &cancellable)

@@ -12,6 +12,7 @@ struct StateObjectView: View {
 
     var body: some View {
         VStack {
+            Text("\(viewModel.id)")
             Text(viewModel.text)
             Text("\(viewModel.date)")
         }

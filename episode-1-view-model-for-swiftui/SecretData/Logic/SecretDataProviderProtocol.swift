@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SecretDataProviderProtocol {
-    
+    var secretData: SecretDataModel { get }
 }

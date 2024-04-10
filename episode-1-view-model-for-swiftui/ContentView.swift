@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ContentViewModel()
+
     var body: some View {
-        TabView {
-            StateObjectView()
+        VStack {
+            Text("date: \(viewModel.date)")
+            TabView {
+                StateObjectView()
+                    .tabItem {
+                        Label("StateObject", systemImage: "list.dash")
+                    }
+                
+                ObservedObjectCreatedInInitView(
+                    viewModel: ObservedObjectCreatedInInitViewModel(
+                        secretDataProvider: viewModel.secretData)
+                )
                 .tabItem {
-                    Label("StateObject", systemImage: "list.dash")
+                    Label("ObservedObject", systemImage: "list.dash")
                 }
+            }
         }
     }
 }
