@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F09EBD02BD84F080038308F /* ObservedObjectCreatedInOuterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09EBCF2BD84F080038308F /* ObservedObjectCreatedInOuterViewModel.swift */; };
+		6F09EBD32BD851190038308F /* StateObjectWrappedValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09EBD22BD851190038308F /* StateObjectWrappedValueView.swift */; };
+		6F09EBD52BD8514A0038308F /* StateObjectWrappedValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09EBD42BD8514A0038308F /* StateObjectWrappedValueViewModel.swift */; };
 		6FCA3F342BC33F1500AB0E44 /* episode_1_view_model_for_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA3F332BC33F1500AB0E44 /* episode_1_view_model_for_swiftuiApp.swift */; };
 		6FCA3F362BC33F1500AB0E44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA3F352BC33F1500AB0E44 /* ContentView.swift */; };
 		6FCA3F382BC33F1800AB0E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FCA3F372BC33F1800AB0E44 /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F09EBCF2BD84F080038308F /* ObservedObjectCreatedInOuterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObjectCreatedInOuterViewModel.swift; sourceTree = "<group>"; };
+		6F09EBD22BD851190038308F /* StateObjectWrappedValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObjectWrappedValueView.swift; sourceTree = "<group>"; };
+		6F09EBD42BD8514A0038308F /* StateObjectWrappedValueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObjectWrappedValueViewModel.swift; sourceTree = "<group>"; };
 		6FCA3F302BC33F1500AB0E44 /* episode-1-view-model-for-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "episode-1-view-model-for-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCA3F332BC33F1500AB0E44 /* episode_1_view_model_for_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = episode_1_view_model_for_swiftuiApp.swift; sourceTree = "<group>"; };
 		6FCA3F352BC33F1500AB0E44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F09EBD12BD851050038308F /* StateObjectWrappedValue */ = {
+			isa = PBXGroup;
+			children = (
+				6F09EBD22BD851190038308F /* StateObjectWrappedValueView.swift */,
+				6F09EBD42BD8514A0038308F /* StateObjectWrappedValueViewModel.swift */,
+			);
+			path = StateObjectWrappedValue;
+			sourceTree = "<group>";
+		};
 		6FCA3F272BC33F1500AB0E44 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +111,7 @@
 		6FCA3F322BC33F1500AB0E44 /* episode-1-view-model-for-swiftui */ = {
 			isa = PBXGroup;
 			children = (
+				6F09EBD12BD851050038308F /* StateObjectWrappedValue */,
 				6FF298132BC73D450052E791 /* ObservedObjectCreatedInOuterView */,
 				6FF2980A2BC739120052E791 /* ObservedObjectCreatedInInit */,
 				6FCA3F712BC34DA900AB0E44 /* Common */,
@@ -192,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF298142BC73D710052E791 /* ObservedObjectCreatedInOuterView.swift */,
+				6F09EBCF2BD84F080038308F /* ObservedObjectCreatedInOuterViewModel.swift */,
 			);
 			path = ObservedObjectCreatedInOuterView;
 			sourceTree = "<group>";
@@ -297,8 +314,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FCA3F6A2BC34C8200AB0E44 /* SecretDataProviderProtocol.swift in Sources */,
+				6F09EBD02BD84F080038308F /* ObservedObjectCreatedInOuterViewModel.swift in Sources */,
+				6F09EBD32BD851190038308F /* StateObjectWrappedValueView.swift in Sources */,
 				6FCA3F362BC33F1500AB0E44 /* ContentView.swift in Sources */,
 				6FCA3F642BC348B000AB0E44 /* StateObjectViewModel.swift in Sources */,
+				6F09EBD52BD8514A0038308F /* StateObjectWrappedValueViewModel.swift in Sources */,
 				6FCA3F6D2BC34D1D00AB0E44 /* SecretDataModel.swift in Sources */,
 				6FCA3F342BC33F1500AB0E44 /* episode_1_view_model_for_swiftuiApp.swift in Sources */,
 				6FF298152BC73D710052E791 /* ObservedObjectCreatedInOuterView.swift in Sources */,

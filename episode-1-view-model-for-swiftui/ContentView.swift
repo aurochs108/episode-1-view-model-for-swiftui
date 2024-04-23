@@ -7,24 +7,51 @@
 
 import SwiftUI
 
+enum TabItem: Hashable {
+    case stateObject
+    case observedObject
+}
+
 struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
-
+    
     var body: some View {
-        VStack {
-            Text("date: \(viewModel.date)")
-            TabView {
-                StateObjectView()
-                    .tabItem {
-                        Label("StateObject", systemImage: "list.dash")
-                    }
+        NavigationView {
+            VStack {
+                Text("date: \(viewModel.date)")
+                Spacer()
+                    .frame(height: 16)
                 
-                ObservedObjectCreatedInInitView(
-                    viewModel: ObservedObjectCreatedInInitViewModel(
-                        secretDataProvider: viewModel.secretData)
-                )
-                .tabItem {
-                    Label("ObservedObject", systemImage: "list.dash")
+                NavigationLink {
+                    StateObjectView()
+                } label: {
+                    Text("StateObjectView initialised in stadard way")
+                }
+                
+                NavigationLink {
+                    ObservedObjectCreatedInInitView(
+                        secretDataProvider: viewModel.secretData
+                    )
+                } label: {
+                    Text("ObservedObject created in init")
+                }
+                
+                NavigationLink {
+                    ObservedObjectCreatedInOuterView(
+                        viewModel: ObservedObjectCreatedInOuterViewModel(
+                            secretDataProvider: viewModel.secretData
+                        )
+                    )
+                } label: {
+                    Text("ObservedObject created in outer init")
+                }
+                
+                NavigationLink {
+                    StateObjectWrappedValueView(
+                        secretDataProvider: viewModel.secretData
+                    )
+                } label: {
+                    Text("State object created by wrapped value")
                 }
             }
         }

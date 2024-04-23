@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct ObservedObjectCreatedInOuterView: View {
+    @ObservedObject private var viewModel: ObservedObjectCreatedInOuterViewModel
+    
+    init(
+        viewModel: ObservedObjectCreatedInOuterViewModel
+    ) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("\(viewModel.id)")
+            Text("Secret data: \(viewModel.secretDataProvider.secretData.data)")
+            Text(viewModel.text)
+            Text("\(viewModel.date)")
+        }
     }
 }
 
 #Preview {
-    ObservedObjectCreatedInOuterView()
+    let secretDataProvider = SecretDataProvider(
+        secretData: SecretDataModel(
+            data: UUID().uuidString
+        )
+    )
+
+    return ObservedObjectCreatedInOuterView(
+        viewModel: ObservedObjectCreatedInOuterViewModel(
+            secretDataProvider: secretDataProvider
+        )
+    )
 }
+

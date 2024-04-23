@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 final class StateObjectViewModel: ObservableObject {
-    @Published private(set) var id: Int
+    let id: Int
     @Published private(set) var text = UUID().uuidString
     @Published private(set) var date = Date()
     private let secretDataProvider: SecretDataProviderProtocol

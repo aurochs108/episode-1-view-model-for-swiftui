@@ -1,20 +1,22 @@
 //
-//  ObservedObjectCreatedInInitView.swift
+//  StateObjectWrappedValueView.swift
 //  episode-1-view-model-for-swiftui
 //
-//  Created by Dawid on 10/04/2024.
+//  Created by Dawid on 23/04/2024.
 //
 
 import SwiftUI
 
-struct ObservedObjectCreatedInInitView: View {
-    @ObservedObject private var viewModel: ObservedObjectCreatedInInitViewModel
+struct StateObjectWrappedValueView: View {
+    @StateObject private var viewModel: StateObjectWrappedValueViewModel
     
     init(
         secretDataProvider: SecretDataProviderProtocol
     ) {
-        self.viewModel = ObservedObjectCreatedInInitViewModel(
-            secretDataProvider: secretDataProvider
+        self._viewModel = StateObject(
+            wrappedValue: StateObjectWrappedValueViewModel(
+                secretDataProvider: secretDataProvider
+            )
         )
     }
 
@@ -35,7 +37,5 @@ struct ObservedObjectCreatedInInitView: View {
         )
     )
 
-    return ObservedObjectCreatedInInitView(
-        secretDataProvider: secretDataProvider
-    )
+    return StateObjectWrappedValueView(secretDataProvider: secretDataProvider)
 }
