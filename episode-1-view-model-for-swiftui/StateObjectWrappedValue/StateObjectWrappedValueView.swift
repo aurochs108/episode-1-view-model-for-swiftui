@@ -31,11 +31,7 @@ struct StateObjectWrappedValueView: View {
 }
 
 #Preview {
-    let secretDataProvider = SecretDataProvider(
-        secretData: SecretDataModel(
-            data: UUID().uuidString
-        )
-    )
+    let secretDataProvider = SecretDataProvider()
 
     return StateObjectWrappedValueView(secretDataProvider: secretDataProvider)
 }

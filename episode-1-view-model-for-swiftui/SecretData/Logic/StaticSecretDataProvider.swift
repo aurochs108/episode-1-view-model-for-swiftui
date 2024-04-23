@@ -10,9 +10,5 @@ import Foundation
 final class StaticSecretDataProvider: SecretDataProviderProtocol {
     static let shared = StaticSecretDataProvider()
     
-    let secretData: SecretDataModel
-    
-    private init() {
-        self.secretData = SecretDataModel(data: UUID().uuidString)
-    }
+    let secretData = "Secret"
 }

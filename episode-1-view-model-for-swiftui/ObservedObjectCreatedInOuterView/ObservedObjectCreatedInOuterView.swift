@@ -19,7 +19,7 @@ struct ObservedObjectCreatedInOuterView: View {
     var body: some View {
         VStack {
             Text("\(viewModel.id)")
-            Text("Secret data: \(viewModel.secretDataProvider.secretData.data)")
+            Text("Secret data: \(viewModel.secretDataProvider.secretData)")
             Text(viewModel.text)
             Text("\(viewModel.date)")
         }
@@ -27,11 +27,7 @@ struct ObservedObjectCreatedInOuterView: View {
 }
 
 #Preview {
-    let secretDataProvider = SecretDataProvider(
-        secretData: SecretDataModel(
-            data: UUID().uuidString
-        )
-    )
+    let secretDataProvider = SecretDataProvider()
 
     return ObservedObjectCreatedInOuterView(
         viewModel: ObservedObjectCreatedInOuterViewModel(

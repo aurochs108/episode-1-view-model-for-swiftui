@@ -14,9 +14,7 @@ final class ContentViewModel: ObservableObject {
     private var cancellable = Set<AnyCancellable>()
     
     init() {
-        self.secretData = SecretDataProvider(
-            secretData: SecretDataModel(data: UUID().uuidString)
-        )
+        self.secretData = SecretDataProvider()
         self.date = Date()
         
         bind()

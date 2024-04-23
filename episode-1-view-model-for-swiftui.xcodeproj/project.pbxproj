@@ -20,7 +20,7 @@
 		6FCA3F682BC34C6D00AB0E44 /* StaticSecretDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA3F672BC34C6D00AB0E44 /* StaticSecretDataProvider.swift */; };
 		6FCA3F6A2BC34C8200AB0E44 /* SecretDataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA3F692BC34C8200AB0E44 /* SecretDataProviderProtocol.swift */; };
 		6FCA3F6D2BC34D1D00AB0E44 /* SecretDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA3F6C2BC34D1D00AB0E44 /* SecretDataModel.swift */; };
-		6FCA3F732BC34DBD00AB0E44 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA3F722BC34DBD00AB0E44 /* LabelView.swift */; };
+		6FCA3F732BC34DBD00AB0E44 /* SecretButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA3F722BC34DBD00AB0E44 /* SecretButtonView.swift */; };
 		6FF2980C2BC739BA0052E791 /* ObservedObjectCreatedInInitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF2980B2BC739BA0052E791 /* ObservedObjectCreatedInInitView.swift */; };
 		6FF2980E2BC739D80052E791 /* ObservedObjectCreatedInInitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF2980D2BC739D80052E791 /* ObservedObjectCreatedInInitViewModel.swift */; };
 		6FF298102BC73A540052E791 /* SecretDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF2980F2BC73A540052E791 /* SecretDataProvider.swift */; };
@@ -55,7 +55,7 @@
 		6FCA3F672BC34C6D00AB0E44 /* StaticSecretDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticSecretDataProvider.swift; sourceTree = "<group>"; };
 		6FCA3F692BC34C8200AB0E44 /* SecretDataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretDataProviderProtocol.swift; sourceTree = "<group>"; };
 		6FCA3F6C2BC34D1D00AB0E44 /* SecretDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretDataModel.swift; sourceTree = "<group>"; };
-		6FCA3F722BC34DBD00AB0E44 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		6FCA3F722BC34DBD00AB0E44 /* SecretButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretButtonView.swift; sourceTree = "<group>"; };
 		6FF2980B2BC739BA0052E791 /* ObservedObjectCreatedInInitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObjectCreatedInInitView.swift; sourceTree = "<group>"; };
 		6FF2980D2BC739D80052E791 /* ObservedObjectCreatedInInitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObjectCreatedInInitViewModel.swift; sourceTree = "<group>"; };
 		6FF2980F2BC73A540052E791 /* SecretDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretDataProvider.swift; sourceTree = "<group>"; };
@@ -179,18 +179,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		6FCA3F6E2BC34D7400AB0E44 /* LabelView */ = {
+		6FCA3F6E2BC34D7400AB0E44 /* SecretButton */ = {
 			isa = PBXGroup;
 			children = (
-				6FCA3F722BC34DBD00AB0E44 /* LabelView.swift */,
+				6FCA3F722BC34DBD00AB0E44 /* SecretButtonView.swift */,
 			);
-			path = LabelView;
+			path = SecretButton;
 			sourceTree = "<group>";
 		};
 		6FCA3F712BC34DA900AB0E44 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				6FCA3F6E2BC34D7400AB0E44 /* LabelView */,
+				6FCA3F6E2BC34D7400AB0E44 /* SecretButton */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -322,7 +322,7 @@
 				6FCA3F6D2BC34D1D00AB0E44 /* SecretDataModel.swift in Sources */,
 				6FCA3F342BC33F1500AB0E44 /* episode_1_view_model_for_swiftuiApp.swift in Sources */,
 				6FF298152BC73D710052E791 /* ObservedObjectCreatedInOuterView.swift in Sources */,
-				6FCA3F732BC34DBD00AB0E44 /* LabelView.swift in Sources */,
+				6FCA3F732BC34DBD00AB0E44 /* SecretButtonView.swift in Sources */,
 				6FF2980C2BC739BA0052E791 /* ObservedObjectCreatedInInitView.swift in Sources */,
 				6FCA3F682BC34C6D00AB0E44 /* StaticSecretDataProvider.swift in Sources */,
 				6FF298122BC73C820052E791 /* ContentViewModel.swift in Sources */,

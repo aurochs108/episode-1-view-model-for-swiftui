@@ -8,9 +8,5 @@
 import Foundation
 
 final class SecretDataProvider: SecretDataProviderProtocol {
-    let secretData: SecretDataModel
-    
-    init(secretData: SecretDataModel) {
-        self.secretData = secretData
-    }
+    let secretData = "Secret"
 }

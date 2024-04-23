@@ -9,30 +9,24 @@ import Combine
 import Foundation
 
 final class ObservedObjectCreatedInInitViewModel: ObservableObject {
-    private(set) var id: Int
-    @Published private(set) var text = UUID().uuidString
-    @Published private(set) var date = Date()
+    let id: Int
     let secretDataProvider: SecretDataProviderProtocol
-    private var cancellable = Set<AnyCancellable>()
+    @Published var isSecretRevealed = false
+    var timer: Timer? = nil
     
     init(
         secretDataProvider: SecretDataProviderProtocol
     ) {
         self.id = Int.random(in: 0...999)
         self.secretDataProvider = secretDataProvider
-        
-        bind()
     }
     
-    private func bind() {
-        Timer.publish(every: 1, on: .main, in: .default)
-            .autoconnect()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] _ in
-                guard let self else { return }
-                text = UUID().uuidString
-                date = Date()
-            })
-            .store(in: &cancellable)
+    func onButtonTapped() {
+        timer = Timer
+            .scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                DispatchQueue.main.async { [weak self] in
+                    self?.isSecretRevealed = true
+                }
+            }
     }
 }
