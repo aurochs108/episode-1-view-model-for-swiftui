@@ -7,25 +7,21 @@
 
 import SwiftUI
 
-enum TabItem: Hashable {
-    case stateObject
-    case observedObject
-}
-
 struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("date: \(viewModel.date)")
-                Spacer()
-                    .frame(height: 16)
+                Text("\(viewModel.date.ISO8601Format())")
+                    .padding(.bottom, 16)
                 
                 NavigationLink {
                     StateObjectView()
                 } label: {
-                    Text("StateObjectView initialised in stadard way")
+                    RoundedButtonView {
+                        Text("StateObjectView initialised in standard way")
+                    }
                 }
                 
                 NavigationLink {
@@ -33,7 +29,9 @@ struct ContentView: View {
                         secretDataProvider: viewModel.secretData
                     )
                 } label: {
-                    Text("ObservedObject created in init")
+                    RoundedButtonView {
+                        Text("ObservedObject created in init")
+                    }
                 }
                 
                 NavigationLink {
@@ -43,16 +41,18 @@ struct ContentView: View {
                         )
                     )
                 } label: {
-                    Text("ObservedObject created in outer init")
+                    RoundedButtonView {
+                        Text("ObservedObject created in outer init")
+                    }
                 }
-                
-                NavigationLink {
-                    StateObjectWrappedValueView(
-                        secretDataProvider: viewModel.secretData
-                    )
-                } label: {
-                    Text("State object created by wrapped value")
-                }
+            }
+            
+            NavigationLink {
+                StateObjectWrappedValueView(
+                    secretDataProvider: viewModel.secretData
+                )
+            } label: {
+                Text("State object created by wrapped value")
             }
         }
     }
