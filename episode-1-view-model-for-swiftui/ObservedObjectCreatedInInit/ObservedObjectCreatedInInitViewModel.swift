@@ -21,7 +21,7 @@ final class ObservedObjectCreatedInInitViewModel: ObservableObject {
         self.secretDataProvider = secretDataProvider
     }
     
-    func onButtonTapped() {
+    func onButtonSelected() {
         timer = Timer
             .scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                 DispatchQueue.main.async { [weak self] in

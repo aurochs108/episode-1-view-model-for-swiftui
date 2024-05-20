@@ -21,12 +21,12 @@ struct StateObjectWrappedValueView: View {
     }
 
     var body: some View {
-        VStack {
-            Text("\(viewModel.id)")
-            Text("Secret data: \(viewModel.secretDataProvider.secretData.data)")
-            Text(viewModel.text)
-            Text("\(viewModel.date)")
-        }
+        SecretView(
+            id: viewModel.id,
+            isSecretRevealed: $viewModel.isSecretRevealed,
+            secret: "Secret",
+            onButtonSelected: viewModel.onButtonSelected
+        )
     }
 }
 

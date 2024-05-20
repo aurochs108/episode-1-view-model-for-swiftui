@@ -19,7 +19,7 @@ struct ContentView: View {
                 NavigationLink {
                     StateObjectView()
                 } label: {
-                    RoundedButtonView {
+                    RoundedStrokedRectangle {
                         Text("StateObjectView initialised in standard way")
                     }
                 }
@@ -29,7 +29,7 @@ struct ContentView: View {
                         secretDataProvider: viewModel.secretData
                     )
                 } label: {
-                    RoundedButtonView {
+                    RoundedStrokedRectangle {
                         Text("ObservedObject created in init")
                     }
                 }
@@ -41,18 +41,20 @@ struct ContentView: View {
                         )
                     )
                 } label: {
-                    RoundedButtonView {
+                    RoundedStrokedRectangle {
                         Text("ObservedObject created in outer init")
                     }
                 }
-            }
-            
-            NavigationLink {
-                StateObjectWrappedValueView(
-                    secretDataProvider: viewModel.secretData
-                )
-            } label: {
-                Text("State object created by wrapped value")
+                
+                NavigationLink {
+                    StateObjectWrappedValueView(
+                        secretDataProvider: viewModel.secretData
+                    )
+                } label: {
+                    RoundedStrokedRectangle {
+                        Text("State object created by wrapped value")
+                    }
+                }
             }
         }
     }

@@ -19,16 +19,12 @@ struct ObservedObjectCreatedInInitView: View {
     }
 
     var body: some View {
-        VStack {
-            Text("\(viewModel.id)")
-            if !viewModel.isSecretRevealed {
-                SecretButtonView {
-                    viewModel.onButtonTapped()
-                }
-            } else {
-                Text(viewModel.secretDataProvider.secretData)
-            }
-        }
+        SecretView(
+            id: viewModel.id,
+            isSecretRevealed: $viewModel.isSecretRevealed,
+            secret: "Secret",
+            onButtonSelected: viewModel.onButtonSelected
+        )
     }
 }
 

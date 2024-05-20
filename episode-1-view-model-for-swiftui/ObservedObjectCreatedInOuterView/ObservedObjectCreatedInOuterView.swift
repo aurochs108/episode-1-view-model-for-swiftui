@@ -17,12 +17,12 @@ struct ObservedObjectCreatedInOuterView: View {
     }
 
     var body: some View {
-        VStack {
-            Text("\(viewModel.id)")
-            Text("Secret data: \(viewModel.secretDataProvider.secretData)")
-            Text(viewModel.text)
-            Text("\(viewModel.date)")
-        }
+        SecretView(
+            id: viewModel.id,
+            isSecretRevealed: $viewModel.isSecretRevealed,
+            secret: "Secret",
+            onButtonSelected: viewModel.onButtonSelected
+        )
     }
 }
 

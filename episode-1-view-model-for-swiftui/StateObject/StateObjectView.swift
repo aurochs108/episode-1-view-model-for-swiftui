@@ -11,11 +11,12 @@ struct StateObjectView: View {
     @StateObject private var viewModel = StateObjectViewModel()
 
     var body: some View {
-        VStack {
-            Text("\(viewModel.id)")
-            Text(viewModel.text)
-            Text("\(viewModel.date)")
-        }
+        SecretView(
+            id: viewModel.id,
+            isSecretRevealed: $viewModel.isSecretRevealed,
+            secret: "Secret",
+            onButtonSelected: viewModel.onButtonSelected
+        )
     }
 }
 
