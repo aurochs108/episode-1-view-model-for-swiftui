@@ -22,6 +22,7 @@ struct ObservedObjectCreatedInInitView: View {
         SecretView(
             id: viewModel.id,
             isSecretRevealed: $viewModel.isSecretRevealed,
+            buttonColor: $viewModel.buttonColor,
             secret: "Secret",
             onButtonSelected: viewModel.onButtonSelected
         )
