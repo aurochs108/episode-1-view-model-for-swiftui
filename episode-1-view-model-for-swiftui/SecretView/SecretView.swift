@@ -10,6 +10,7 @@ import SwiftUI
 struct SecretView: View {
     private var id: Int
     @Binding private var isSecretRevealed: Bool
+    @Binding private var isButtonDisabled: Bool
     @Binding private var buttonColor: Color
     private let secret: String
     private let onButtonSelected: () -> Void
@@ -17,12 +18,14 @@ struct SecretView: View {
     init(
         id: Int,
         isSecretRevealed: Binding<Bool>,
+        isButtonDisabled: Binding<Bool>,
         buttonColor: Binding<Color>,
         secret: String,
         onButtonSelected: @escaping () -> Void
     ) {
         self.id = id
         self._isSecretRevealed = isSecretRevealed
+        self._isButtonDisabled = isButtonDisabled
         self._buttonColor = buttonColor
         self.secret = secret
         self.onButtonSelected = onButtonSelected
@@ -39,6 +42,7 @@ struct SecretView: View {
                         Text("Reveal secret")
                     }
                 }
+                .disabled(isButtonDisabled)
             } else {
                 Text(secret)
                     .foregroundStyle(.pink)

@@ -24,8 +24,9 @@ struct StateObjectWrappedValueView: View {
         SecretView(
             id: viewModel.id,
             isSecretRevealed: $viewModel.isSecretRevealed,
+            isButtonDisabled: $viewModel.isButtonDisabled,
             buttonColor: $viewModel.buttonColor,
-            secret: "Secret",
+            secret: viewModel.secretDataProvider.secretData,
             onButtonSelected: viewModel.onButtonSelected
         )
     }

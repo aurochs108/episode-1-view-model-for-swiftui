@@ -13,6 +13,7 @@ class ViewModel: ObservableObject {
     let id: Int
     let secretDataProvider: SecretDataProviderProtocol
     @Published var isSecretRevealed = false
+    @Published var isButtonDisabled = false
     var timer: Timer? = nil
     var runCount = 0
     @Published var buttonColor = Color.white
@@ -26,6 +27,8 @@ class ViewModel: ObservableObject {
     }
     
     func onButtonSelected() {
+        isButtonDisabled = true
+
         timer = Timer
             .scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 DispatchQueue.main.async { [weak self] in
