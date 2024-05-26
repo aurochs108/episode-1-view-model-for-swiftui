@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct StateObjectView: View {
-    @StateObject private var viewModel = StateObjectViewModel()
+    @StateObject private var viewModel = ViewModel(secretDataProvider: SecretDataProvider())
 
     var body: some View {
         SecretView(
             id: viewModel.id,
             isSecretRevealed: $viewModel.isSecretRevealed,
             buttonColor: $viewModel.buttonColor,
-            secret: "Secret",
+            secret: "Not really secret",
             onButtonSelected: viewModel.onButtonSelected
         )
     }

@@ -16,7 +16,7 @@ class ViewModel: ObservableObject {
     var timer: Timer? = nil
     var runCount = 0
     @Published var buttonColor = Color.white
-    private let colors: [Color] = [.yellow, .red, .green, .teal, .blue]
+    private var colors: [Color] = [.yellow, .red, .green, .teal, .pink].shuffled()
     
     init(
         secretDataProvider: SecretDataProviderProtocol
@@ -31,7 +31,11 @@ class ViewModel: ObservableObject {
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     runCount += 1
-                    buttonColor = colors.randomElement() ?? .white
+                    withAnimation { [weak self] in
+                        guard let self else { return }
+                        buttonColor = colors.first ?? .white
+                        colors.removeFirst()
+                    }
                     
                     if runCount == 3 {
                         isSecretRevealed = true
