@@ -1,15 +1,15 @@
 //
-//  ObservedObjectCreatedInOuterViewModel.swift
+//  StateObjectWrappedValueViewModel.swift
 //  episode-1-view-model-for-swiftui
 //
 //  Created by Dawid on 23/04/2024.
 //
 
-import Combine
 import Foundation
+import Combine
 import SwiftUI
 
-class ObservedObjectCreatedInOuterViewModel: ObservableObject {
+class ViewModel: ObservableObject {
     let id: Int
     let secretDataProvider: SecretDataProviderProtocol
     @Published var isSecretRevealed = false

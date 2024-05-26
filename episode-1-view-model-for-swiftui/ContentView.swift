@@ -11,50 +11,48 @@ struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Text("\(viewModel.date.ISO8601Format())")
                     .padding(.bottom, 16)
                 
-                NavigationLink {
+                navigationButton(title: "StateObject initialised in standard way") {
                     StateObjectView()
-                } label: {
-                    RoundedStrokedRectangle {
-                        Text("StateObjectView initialised in standard way")
-                    }
                 }
-                
-                NavigationLink {
+
+                navigationButton(title: "ObservedObject created in init") {
                     ObservedObjectCreatedInInitView(
                         secretDataProvider: viewModel.secretData
                     )
-                } label: {
-                    RoundedStrokedRectangle {
-                        Text("ObservedObject created in init")
-                    }
                 }
-                
-                NavigationLink {
+
+                navigationButton(title: "ObservedObject created in outer init") {
                     ObservedObjectCreatedInOuterView(
-                        viewModel: ObservedObjectCreatedInOuterViewModel(
+                        viewModel: ViewModel(
                             secretDataProvider: viewModel.secretData
                         )
                     )
-                } label: {
-                    RoundedStrokedRectangle {
-                        Text("ObservedObject created in outer init")
-                    }
                 }
-                
-                NavigationLink {
+
+                navigationButton(title: "StateObject created by wrapped value") {
                     StateObjectWrappedValueView(
                         secretDataProvider: viewModel.secretData
                     )
-                } label: {
-                    RoundedStrokedRectangle {
-                        Text("State object created by wrapped value")
-                    }
                 }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func navigationButton<Content: View>(
+        title: String,
+        @ViewBuilder navigationTarget: () -> Content
+    ) -> some View {
+        NavigationLink {
+            navigationTarget()
+        } label: {
+            RoundedStrokedRectangle {
+                Text(title)
             }
         }
     }

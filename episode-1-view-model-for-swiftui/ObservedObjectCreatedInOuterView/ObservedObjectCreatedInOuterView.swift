@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ObservedObjectCreatedInOuterView: View {
-    @ObservedObject private var viewModel: ObservedObjectCreatedInOuterViewModel
+    @ObservedObject private var viewModel: ViewModel
     
     init(
-        viewModel: ObservedObjectCreatedInOuterViewModel
+        viewModel: ViewModel
     ) {
         self.viewModel = viewModel
     }
@@ -26,14 +26,3 @@ struct ObservedObjectCreatedInOuterView: View {
         )
     }
 }
-
-#Preview {
-    let secretDataProvider = SecretDataProvider()
-
-    return ObservedObjectCreatedInOuterView(
-        viewModel: ObservedObjectCreatedInOuterViewModel(
-            secretDataProvider: secretDataProvider
-        )
-    )
-}
-

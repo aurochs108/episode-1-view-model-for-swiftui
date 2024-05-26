@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ObservedObjectCreatedInInitView: View {
-    @ObservedObject private var viewModel: ObservedObjectCreatedInInitViewModel
+    @ObservedObject private var viewModel: ViewModel
     
     init(
         secretDataProvider: SecretDataProviderProtocol
     ) {
-        self.viewModel = ObservedObjectCreatedInInitViewModel(
+        self.viewModel = ViewModel(
             secretDataProvider: secretDataProvider
         )
     }

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct StateObjectWrappedValueView: View {
-    @StateObject private var viewModel: StateObjectWrappedValueViewModel
+    @StateObject private var viewModel: ViewModel
     
     init(
         secretDataProvider: SecretDataProviderProtocol
     ) {
         self._viewModel = StateObject(
-            wrappedValue: StateObjectWrappedValueViewModel(
+            wrappedValue: ViewModel(
                 secretDataProvider: secretDataProvider
             )
         )
