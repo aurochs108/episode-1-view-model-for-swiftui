@@ -17,7 +17,7 @@ class ViewModel: ObservableObject {
     var timer: Timer? = nil
     var runCount = 0
     @Published var buttonColor = Color.white
-    private var colors: [Color] = [.yellow, .red, .green, .teal, .pink].shuffled()
+    private var colors: [Color] = [.red, .yellow, .green]
     
     init(
         secretDataProvider: SecretDataProviderProtocol
@@ -37,10 +37,13 @@ class ViewModel: ObservableObject {
                     withAnimation { [weak self] in
                         guard let self else { return }
                         buttonColor = colors.first ?? .white
-                        colors.removeFirst()
+
+                        colors.removeAll { [weak self] color in
+                            color == self?.buttonColor
+                        }
                     }
                     
-                    if runCount == 3 {
+                    if runCount == 4 {
                         isSecretRevealed = true
                         timer.invalidate()
                     }
