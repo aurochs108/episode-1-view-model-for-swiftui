@@ -13,6 +13,7 @@ struct SecretView: View {
     @Binding private var isButtonDisabled: Bool
     @Binding private var buttonColor: Color
     private let secret: String
+    private let parentViewId: Int
     private let onButtonSelected: () -> Void
     
     init(
@@ -21,6 +22,7 @@ struct SecretView: View {
         isButtonDisabled: Binding<Bool>,
         buttonColor: Binding<Color>,
         secret: String,
+        parentViewId: Int,
         onButtonSelected: @escaping () -> Void
     ) {
         self.id = id
@@ -28,6 +30,7 @@ struct SecretView: View {
         self._isButtonDisabled = isButtonDisabled
         self._buttonColor = buttonColor
         self.secret = secret
+        self.parentViewId = parentViewId
         self.onButtonSelected = onButtonSelected
     }
     
@@ -44,6 +47,7 @@ struct SecretView: View {
                 }
                 .disabled(isButtonDisabled)
             } else {
+                Text("parentViewId: \(parentViewId)")
                 Text(secret)
                     .foregroundStyle(.pink)
             }

@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class ContentViewModel: ObservableObject {
+    let id = Int.random(in: 0...999)
     @Published var date: Date
     let secretData: SecretDataProviderProtocol
     private var cancellable = Set<AnyCancellable>()

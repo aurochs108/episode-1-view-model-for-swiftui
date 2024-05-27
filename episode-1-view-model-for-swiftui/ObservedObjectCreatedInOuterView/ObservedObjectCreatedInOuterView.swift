@@ -23,6 +23,7 @@ struct ObservedObjectCreatedInOuterView: View {
             isButtonDisabled: $viewModel.isButtonDisabled,
             buttonColor: $viewModel.buttonColor,
             secret: viewModel.secretDataProvider.secretData,
+            parentViewId: viewModel.parentViewId,
             onButtonSelected: viewModel.onButtonSelected
         )
     }

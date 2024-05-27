@@ -11,11 +11,13 @@ struct StateObjectWrappedValueView: View {
     @StateObject private var viewModel: ViewModel
     
     init(
-        secretDataProvider: SecretDataProviderProtocol
+        secretDataProvider: SecretDataProviderProtocol,
+        parentViewId: Int
     ) {
         self._viewModel = StateObject(
             wrappedValue: ViewModel(
-                secretDataProvider: secretDataProvider
+                secretDataProvider: secretDataProvider,
+                parentViewId: parentViewId
             )
         )
     }
@@ -27,13 +29,8 @@ struct StateObjectWrappedValueView: View {
             isButtonDisabled: $viewModel.isButtonDisabled,
             buttonColor: $viewModel.buttonColor,
             secret: viewModel.secretDataProvider.secretData,
+            parentViewId: viewModel.parentViewId,
             onButtonSelected: viewModel.onButtonSelected
         )
     }
-}
-
-#Preview {
-    let secretDataProvider = SecretDataProvider()
-
-    return StateObjectWrappedValueView(secretDataProvider: secretDataProvider)
 }

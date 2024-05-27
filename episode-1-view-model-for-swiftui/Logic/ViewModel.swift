@@ -12,6 +12,7 @@ import SwiftUI
 class ViewModel: ObservableObject {
     let id: Int
     let secretDataProvider: SecretDataProviderProtocol
+    let parentViewId: Int
     @Published var isSecretRevealed = false
     @Published var isButtonDisabled = false
     var timer: Timer? = nil
@@ -20,10 +21,12 @@ class ViewModel: ObservableObject {
     private var colors: [Color] = [.red, .yellow, .green]
     
     init(
-        secretDataProvider: SecretDataProviderProtocol
+        secretDataProvider: SecretDataProviderProtocol,
+        parentViewId: Int
     ) {
         self.id = Int.random(in: 0...999)
         self.secretDataProvider = secretDataProvider
+        self.parentViewId = parentViewId
     }
     
     func onButtonSelected() {

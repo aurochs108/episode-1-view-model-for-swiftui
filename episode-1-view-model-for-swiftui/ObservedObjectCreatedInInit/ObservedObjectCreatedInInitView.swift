@@ -11,10 +11,12 @@ struct ObservedObjectCreatedInInitView: View {
     @ObservedObject private var viewModel: ViewModel
     
     init(
-        secretDataProvider: SecretDataProviderProtocol
+        secretDataProvider: SecretDataProviderProtocol,
+        parentViewId: Int
     ) {
         self.viewModel = ViewModel(
-            secretDataProvider: secretDataProvider
+            secretDataProvider: secretDataProvider,
+            parentViewId: parentViewId
         )
     }
 
@@ -25,15 +27,8 @@ struct ObservedObjectCreatedInInitView: View {
             isButtonDisabled: $viewModel.isButtonDisabled,
             buttonColor: $viewModel.buttonColor,
             secret: viewModel.secretDataProvider.secretData,
+            parentViewId: viewModel.parentViewId,
             onButtonSelected: viewModel.onButtonSelected
         )
     }
-}
-
-#Preview {
-    let secretDataProvider = SecretDataProvider()
-
-    return ObservedObjectCreatedInInitView(
-        secretDataProvider: secretDataProvider
-    )
 }

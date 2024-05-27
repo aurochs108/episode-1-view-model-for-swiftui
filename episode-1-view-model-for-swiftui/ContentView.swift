@@ -13,6 +13,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Text("View id: \(viewModel.id)")
+                    .font(.title)
                 Text("\(viewModel.date.ISO8601Format())")
                     .padding(.bottom, 16)
                 
@@ -22,21 +24,24 @@ struct ContentView: View {
 
                 navigationButton(title: "ObservedObject created in init") {
                     ObservedObjectCreatedInInitView(
-                        secretDataProvider: viewModel.secretData
+                        secretDataProvider: viewModel.secretData, 
+                        parentViewId: viewModel.id
                     )
                 }
 
                 navigationButton(title: "ObservedObject created in outer init") {
                     ObservedObjectCreatedInOuterView(
                         viewModel: ViewModel(
-                            secretDataProvider: viewModel.secretData
+                            secretDataProvider: viewModel.secretData,
+                            parentViewId: viewModel.id
                         )
                     )
                 }
 
                 navigationButton(title: "StateObject created by wrapped value") {
                     StateObjectWrappedValueView(
-                        secretDataProvider: viewModel.secretData
+                        secretDataProvider: viewModel.secretData,
+                        parentViewId: viewModel.id
                     )
                 }
             }

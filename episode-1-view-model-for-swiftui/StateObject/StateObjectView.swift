@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StateObjectView: View {
-    @StateObject private var viewModel = ViewModel(secretDataProvider: SecretDataProvider())
+    @StateObject private var viewModel = ViewModel(secretDataProvider: SecretDataProvider(), parentViewId: 0)
 
     var body: some View {
         SecretView(
@@ -17,11 +17,8 @@ struct StateObjectView: View {
             isButtonDisabled: $viewModel.isButtonDisabled,
             buttonColor: $viewModel.buttonColor,
             secret: viewModel.secretDataProvider.secretData,
+            parentViewId: viewModel.parentViewId,
             onButtonSelected: viewModel.onButtonSelected
         )
     }
-}
-
-#Preview {
-    StateObjectView()
 }
