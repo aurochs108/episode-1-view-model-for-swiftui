@@ -21,6 +21,16 @@ struct ContentView: View {
                 navigationButton(title: "StateObject initialised in standard way") {
                     StateObjectView()
                 }
+                
+                navigationButton(title: "EnvironmentObject") {
+                    EnvironmentObjectView()
+                    .environmentObject(
+                        ViewModel(
+                            secretDataProvider: viewModel.secretData,
+                            parentViewId: viewModel.id
+                        )
+                    )
+                }
 
                 navigationButton(title: "ObservedObject created in init") {
                     ObservedObjectCreatedInInitView(
