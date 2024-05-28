@@ -12,7 +12,7 @@ struct ObservedObjectCreatedInInitView: View {
     
     init(
         secretDataProvider: SecretDataProviderProtocol,
-        parentViewId: Int
+        parentViewId: String
     ) {
         self.viewModel = ViewModel(
             secretDataProvider: secretDataProvider,

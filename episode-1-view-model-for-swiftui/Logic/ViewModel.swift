@@ -12,7 +12,7 @@ import SwiftUI
 class ViewModel: ObservableObject {
     let id: Int
     let secretDataProvider: SecretDataProviderProtocol
-    let parentViewId: Int
+    let parentViewId: String
     @Published var isSecretRevealed = false
     @Published var isButtonDisabled = false
     var timer: Timer? = nil
@@ -22,7 +22,7 @@ class ViewModel: ObservableObject {
     
     init(
         secretDataProvider: SecretDataProviderProtocol,
-        parentViewId: Int
+        parentViewId: String
     ) {
         self.id = Int.random(in: 0...999)
         self.secretDataProvider = secretDataProvider
@@ -37,6 +37,7 @@ class ViewModel: ObservableObject {
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     runCount += 1
+
                     withAnimation { [weak self] in
                         guard let self else { return }
                         buttonColor = colors.first ?? .white

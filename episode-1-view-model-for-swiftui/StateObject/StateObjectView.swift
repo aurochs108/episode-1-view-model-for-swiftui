@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StateObjectView: View {
-    @StateObject private var viewModel = ViewModel(secretDataProvider: SecretDataProvider(), parentViewId: 0)
+    @StateObject private var viewModel = ViewModel(secretDataProvider: SecretDataProvider(), parentViewId: "0")
 
     var body: some View {
         SecretView(

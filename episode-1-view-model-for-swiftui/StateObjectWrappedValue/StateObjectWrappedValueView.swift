@@ -12,7 +12,7 @@ struct StateObjectWrappedValueView: View {
     
     init(
         secretDataProvider: SecretDataProviderProtocol,
-        parentViewId: Int
+        parentViewId: String
     ) {
         self._viewModel = StateObject(
             wrappedValue: ViewModel(

@@ -13,7 +13,7 @@ struct SecretView: View {
     @Binding private var isButtonDisabled: Bool
     @Binding private var buttonColor: Color
     private let secret: String
-    private let parentViewId: Int
+    private let parentViewId: String
     private let onButtonSelected: () -> Void
     
     init(
@@ -22,7 +22,7 @@ struct SecretView: View {
         isButtonDisabled: Binding<Bool>,
         buttonColor: Binding<Color>,
         secret: String,
-        parentViewId: Int,
+        parentViewId: String,
         onButtonSelected: @escaping () -> Void
     ) {
         self.id = id
