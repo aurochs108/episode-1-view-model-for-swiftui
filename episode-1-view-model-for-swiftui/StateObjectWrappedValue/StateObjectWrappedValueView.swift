@@ -23,14 +23,17 @@ struct StateObjectWrappedValueView: View {
     }
 
     var body: some View {
-        SecretView(
-            id: viewModel.id,
-            isSecretRevealed: $viewModel.isSecretRevealed,
-            isButtonDisabled: $viewModel.isButtonDisabled,
-            buttonColor: $viewModel.buttonColor,
-            secret: viewModel.secretDataProvider.secretData,
-            parentViewId: viewModel.parentViewId,
-            onButtonSelected: viewModel.onButtonSelected
-        )
+        VStack {
+            Text("StateObject created by wrapped value")
+            SecretView(
+                id: viewModel.id,
+                isSecretRevealed: $viewModel.isSecretRevealed,
+                isButtonDisabled: $viewModel.isButtonDisabled,
+                buttonColor: $viewModel.buttonColor,
+                secret: viewModel.secretDataProvider.secretData,
+                parentViewId: viewModel.parentViewId,
+                onButtonSelected: viewModel.onButtonSelected
+            )
+        }
     }
 }

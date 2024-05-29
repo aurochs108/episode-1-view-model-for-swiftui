@@ -12,14 +12,17 @@ struct EnvironmentObjectView: View {
     @EnvironmentObject private var viewModel: ViewModel
 
     var body: some View {
-        SecretView(
-            id: viewModel.id,
-            isSecretRevealed: $viewModel.isSecretRevealed,
-            isButtonDisabled: $viewModel.isButtonDisabled,
-            buttonColor: $viewModel.buttonColor,
-            secret: viewModel.secretDataProvider.secretData,
-            parentViewId: viewModel.parentViewId,
-            onButtonSelected: viewModel.onButtonSelected
-        )
+        VStack {
+            Text("EnvironmentObject")
+            SecretView(
+                id: viewModel.id,
+                isSecretRevealed: $viewModel.isSecretRevealed,
+                isButtonDisabled: $viewModel.isButtonDisabled,
+                buttonColor: $viewModel.buttonColor,
+                secret: viewModel.secretDataProvider.secretData,
+                parentViewId: viewModel.parentViewId,
+                onButtonSelected: viewModel.onButtonSelected
+            )
+        }
     }
 }

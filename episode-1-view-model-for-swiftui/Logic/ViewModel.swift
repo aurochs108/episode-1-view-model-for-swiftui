@@ -33,25 +33,31 @@ class ViewModel: ObservableObject {
         isButtonDisabled = true
 
         timer = Timer
-            .scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            .scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     runCount += 1
 
                     withAnimation { [weak self] in
-                        guard let self else { return }
-                        buttonColor = colors.first ?? .white
-
-                        colors.removeAll { [weak self] color in
-                            color == self?.buttonColor
-                        }
+                        self?.setNextButtonColor()
                     }
-                    
+
                     if runCount == 4 {
                         isSecretRevealed = true
                         timer.invalidate()
                     }
                 }
             }
+    }
+
+    private func setNextButtonColor() {
+        buttonColor = colors.first ?? .clear
+        deleteFirstColor()
+    }
+    
+    private func deleteFirstColor() {
+        if !colors.isEmpty {
+            colors.removeFirst()
+        }
     }
 }

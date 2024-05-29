@@ -36,7 +36,7 @@ struct SecretView: View {
     
     var body: some View {
         VStack {
-            Text("\(id)")
+            Text("view id: \(id)")
             if !isSecretRevealed {
                 Button {
                     onButtonSelected()

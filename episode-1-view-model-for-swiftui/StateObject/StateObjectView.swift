@@ -11,14 +11,17 @@ struct StateObjectView: View {
     @StateObject private var viewModel = ViewModel(secretDataProvider: SecretDataProvider(), parentViewId: "0")
 
     var body: some View {
-        SecretView(
-            id: viewModel.id,
-            isSecretRevealed: $viewModel.isSecretRevealed,
-            isButtonDisabled: $viewModel.isButtonDisabled,
-            buttonColor: $viewModel.buttonColor,
-            secret: viewModel.secretDataProvider.secretData,
-            parentViewId: viewModel.parentViewId,
-            onButtonSelected: viewModel.onButtonSelected
-        )
+        VStack {
+            Text("StateObject initialised in standard way")
+            SecretView(
+                id: viewModel.id,
+                isSecretRevealed: $viewModel.isSecretRevealed,
+                isButtonDisabled: $viewModel.isButtonDisabled,
+                buttonColor: $viewModel.buttonColor,
+                secret: viewModel.secretDataProvider.secretData,
+                parentViewId: viewModel.parentViewId,
+                onButtonSelected: viewModel.onButtonSelected
+            )
+        }
     }
 }

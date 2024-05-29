@@ -17,14 +17,17 @@ struct ObservedObjectCreatedInOuterView: View {
     }
 
     var body: some View {
-        SecretView(
-            id: viewModel.id,
-            isSecretRevealed: $viewModel.isSecretRevealed,
-            isButtonDisabled: $viewModel.isButtonDisabled,
-            buttonColor: $viewModel.buttonColor,
-            secret: viewModel.secretDataProvider.secretData,
-            parentViewId: viewModel.parentViewId,
-            onButtonSelected: viewModel.onButtonSelected
-        )
+        VStack {
+            Text("ObservedObject created in outer init")
+            SecretView(
+                id: viewModel.id,
+                isSecretRevealed: $viewModel.isSecretRevealed,
+                isButtonDisabled: $viewModel.isButtonDisabled,
+                buttonColor: $viewModel.buttonColor,
+                secret: viewModel.secretDataProvider.secretData,
+                parentViewId: viewModel.parentViewId,
+                onButtonSelected: viewModel.onButtonSelected
+            )
+        }
     }
 }
